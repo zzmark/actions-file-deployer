@@ -3,7 +3,7 @@ name: "FTP/SFTP file deployer"
 description: "Fast and customizable deployment with parallel connections and proxy support. Deploy only changed files or do full sync."
 
 branding:
-  icon: "upload"  
+  icon: "upload"
   color: "black"
 
 inputs:
@@ -198,7 +198,7 @@ runs:
         echo "::group::Configurations"
 
         config_ssh=~/.ssh/config
-        mkdir ~/.ssh && echo -e "ExitOnForwardFailure=yes\nStrictHostKeyChecking=no" > ${config_ssh} && chmod 600 ${config_ssh} && echo "File created: ${config_ssh}"
+        mkdir -p ~/.ssh && echo -e "ExitOnForwardFailure=yes\nStrictHostKeyChecking=no" > ${config_ssh} && chmod 600 ${config_ssh} && echo "File created: ${config_ssh}"
         [ "${{inputs.debug}}" == "true" ] && cat ${config_ssh}
         show_hr
 
